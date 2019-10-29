@@ -1,0 +1,14 @@
+name: "site yml"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: about.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<ps3070@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/prisrinivasan/
+output:
+  html_document:
+    theme: journal
