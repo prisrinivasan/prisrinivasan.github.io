@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: journal
 ---
 
 Hello there! My name is Priyanka Srinivasan, a second year MPH Biostatistics student at Columbia University's Mailman School of Public Health. You can find more [about me](./about.html) here, like my academic and professional experience.

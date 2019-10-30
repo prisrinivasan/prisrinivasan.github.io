@@ -3,12 +3,20 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
-      href: about.html
+    - text: More
+      menu:
+      - text: "About"
+        href: about.html
+      - text: "Dashboard"
+        href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<ps3070@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/prisrinivasan/
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/priyankasrinivasan/
+    - icon: fa-graduation-cap fa-lg
+      href: about.html
 output:
   html_document:
-    theme: journal
+    theme: flatly

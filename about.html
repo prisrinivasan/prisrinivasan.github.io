@@ -16,10 +16,13 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -105,33 +108,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 61px;
+  padding-top: 60px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h2 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h3 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h4 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h5 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .section h6 {
-  padding-top: 66px;
-  margin-top: -66px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
 .dropdown-submenu {
   position: relative;
@@ -250,6 +253,63 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -257,6 +317,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -276,8 +346,20 @@ $(document).ready(function () {
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="about.html">About</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    More
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li>
+      <a href="dashboard.html">Dashboard</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="mailto:&lt;ps3070@cumc.columbia.edu&gt;">
@@ -288,6 +370,18 @@ $(document).ready(function () {
 <li>
   <a href="http://github.com/prisrinivasan/">
     <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/priyankasrinivasan/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="about.html">
+    <span class="fa fa-graduation-cap fa-lg"></span>
      
   </a>
 </li>
@@ -310,16 +404,85 @@ $(document).ready(function () {
 <p>Sometimes you need to say a bit about the site – how it was made, where it’s hosted, where the source code can be found.</p>
 <p>If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.</p>
 </div>
-<div id="priyankas-resume" class="section level2">
-<h2>Priyanka’s Resume</h2>
+<div id="priyankas-resume" class="section level1">
+<h1>Priyanka’s Resume</h1>
+<div id="education" class="section level3">
+<h3>Education</h3>
+<p><strong>Columbia University Mailman School of Public Health</strong>, 2018 - 2020</p>
+<p><em>MPH in Biostatistics, Certificate in Health Policy and Practice</em></p>
+<ul>
+<li><strong>Relevant Coursework</strong>: Health Systems, Global &amp; Developmental Perspectives, Quantitative and Qualitative Research Methods Statistical Computing with SAS, Applied Regression I and II, Understanding the Healthcare Payer System, Health Economics, Data Science I</li>
+</ul>
+<p><strong>Fordham University</strong>, 2013-2017</p>
+<p><em>BS Psychology, minor in Business Administration, pre-medical track</em></p>
 </div>
-<div id="education" class="section level1">
-<h1><svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 640 512"><path d="M0 224v272c0 8.84 7.16 16 16 16h80V192H32c-17.67 0-32 14.33-32 32zm360-48h-24v-40c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v64c0 4.42 3.58 8 8 8h48c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zm137.75-63.96l-160-106.67a32.02 32.02 0 0 0-35.5 0l-160 106.67A32.002 32.002 0 0 0 128 138.66V512h128V368c0-8.84 7.16-16 16-16h96c8.84 0 16 7.16 16 16v144h128V138.67c0-10.7-5.35-20.7-14.25-26.63zM320 256c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm288-64h-64v320h80c8.84 0 16-7.16 16-16V224c0-17.67-14.33-32-32-32z"/></svg> Education</h1>
-<p><strong>Columbia University Mailman School of Public Health</strong>: 2018 - 2020 <em>MPH in Biostatistics, Certificate in Health Policy and Practice</em> <strong>Fordham University</strong>: 2011 - 2015 <em>BS Psychology, minor in Business Administration, pre-medical track</em></p>
+<div id="work-experience" class="section level3">
+<h3>Work Experience</h3>
+<p><strong>Columbia University</strong>, August 2018 – Present</p>
+<p><em>Graduate Teaching Assistant</em></p>
+<ul>
+<li>Statistical Computing with SAS | Health Systems (Health Economics, US Public Health, Comparative Health Systems)</li>
+</ul>
+<p><strong>KPMG</strong>, June 2019 – August 2019</p>
+<p><em>Management Consulting Intern, Health and Government Solutions</em></p>
+<ul>
+<li>Provided project management support and produced weekly status reports to keep key stakeholders informed</li>
+<li>Re-engineered a model for optimizing staffing based on needs of several stakeholders</li>
+<li>Researched and presented a potential program and procurement to a high-level stakeholder based on which a whitepaper is being presented to persuade the Commissioner to pursue the program</li>
+</ul>
+<p><strong>Translational Neuroimaging Laboratory, Albert Einstein School of Medicine</strong>, (FT) July 2017 – July 2018, (PT) July 2018 – December 2018</p>
+<p><em>Clinical Research Coordinator</em></p>
+<ul>
+<li>Responsible for QA of MRI images, executive dashboards, data analysis (SPSS), documentation, IRB-related communications, grant/budget proposals, and interviewing subjects for a study on TBI in soccer players</li>
+</ul>
+<p><strong>Mood and Anxiety Disorders Program, Icahn School of Medicine at Mount Sinai</strong>, March 2015 – November 2015, September 2016 – April 2017</p>
+<p><em>Clinical Research Intern</em></p>
+<ul>
+<li>Conducted 45-min phone screens research subjects, organized stored bio samples, and organized large study data (SPSS)</li>
+</ul>
+<p><strong>St. John’s Riverside Hospital</strong>, June 2015 – November 2015</p>
+<p><em>Medical Concierge/Scribe</em></p>
+<ul>
+<li>Composed chart documentation, billing, scribe program development for physicians in Emergency Department setting</li>
+</ul>
+</div>
+<div id="leadership-and-volunteer-experience" class="section level3">
+<h3>Leadership and Volunteer Experience</h3>
+<p><strong>Healthcare Data Analytics (Columbia)</strong>, January 2019 – Present</p>
+<p><em>VP of Finance</em></p>
+<ul>
+<li>Maintain records of financial transactions, budget allocation, contacting vendors, documentation, and organizing meetings/events</li>
+</ul>
+<p><strong>Peer Health Exchange, Inc. (Fordham)</strong>, September 2013 – April 2017</p>
+<p><em>Co-Coordinator, Leadership Council Member, Health Educator</em></p>
+<ul>
+<li>Co-managed chapter of 60+ volunteers, tracked teaching of 130+ workshops scheduled at 6 Bronx high schools, led weekly teaching and cultural sensitivity trainings for health educators, taught HS students, adapted curriculum to student needs</li>
+</ul>
+<p><strong>Care Package Delivery</strong>, September 2014 – July 2015</p>
+<p><em>Project Coordinator</em></p>
+<ul>
+<li>Spearheaded a project to collect and donate care packages children/adolescents who suffer from mental illnesses at clinics in University of Virginia health system and an outpatient clinic in Chantilly, VA</li>
+</ul>
+</div>
+<div id="presentations" class="section level3">
+<h3>Presentations</h3>
+<ul>
+<li>Srinivasan, P. (2015, April). Cross-Cultural Attitudes on Women’s Rights at the UN. Oral presentation at the 43rd Annual Hunter College Psychology Conference, New York, NY.</li>
+<li>TEDxFordham Talk: “Mental Health and Education”</li>
+</ul>
+</div>
+<div id="skills" class="section level3">
+<h3>Skills</h3>
+<ul>
+<li>SAS, REDCap, R (currently learning) EMR (EPIC, Velos, Meditech), SPSS, Microsoft Office Suites (Word, Excel, PowerPoint, Access), Tableau (limited hands-on experience)</li>
+</ul>
+</div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -352,6 +515,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
