@@ -2,7 +2,7 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
     theme: yeti
 ---
@@ -13,12 +13,17 @@ library(tidyverse)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
+
+scale_colour_discrete = scale_colour_viridis_d()
+scale_fill_discrete = scale_fill_viridis_d()
+
+theme_set(theme_light() + theme(legend.position = "bottom"))
 ```
 
-```{r}
+```{r data import, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
 data(rest_inspec)
 
-inspect = rest_inspec %>% 
+rest_inspec %>% 
   janitor::clean_names()
 ```
 
@@ -26,19 +31,25 @@ inspect = rest_inspec %>%
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Chart A: Distribution of Scores among Pending Grades
 
 ```{r}
-
+rest_inspec %>% 
+  filter(boro %in% c("BRONX", "MANHATTAN", "BROOKLYN", "QUEENS", "STATEN ISLAND"),
+         grade %in%  c("P", "Z")) %>% 
+  mutate(boro = fct_reorder(boro, score),
+         grade = recode(grade, "P" = "Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Pending")) %>% 
+  plot_ly(x = ~boro, y = ~score, color = ~grade, type = "box") %>% 
+  layout(boxmode = "group")
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Grades Among Restaurants Labeled as "Critical"
+### Chart B: Grades Among "Critical" Restaurants
 
 ```{r}
-inspect %>% 
+rest_inspec %>% 
   filter(critical_flag == "Critical") %>%  
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
@@ -49,8 +60,8 @@ inspect %>%
 ### Chart C
 
 ```{r}
-inspect = rest_inspec %>% 
+rest_inspec %>% 
   filter(boro == "BRONX" | cuisine_description %in% c("Pizza", "Pizza/Italian")) %>% 
-  
+  plot_ly(x = ~inspection_date, y = ~score, color = ~grade, type = "scatter")
 ```
 
