@@ -7,7 +7,9 @@ navbar:
       menu:
       - text: "About"
         href: about.html
-      - text: "Dashboard"
+      - text: "Resume"
+        href: resume.html
+      - text: "Dashboard: Food Inspection"
         href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<ps3070@cumc.columbia.edu>
@@ -19,4 +21,4 @@ navbar:
       href: about.html
 output:
   html_document:
-    theme: flatly
+    theme: readable

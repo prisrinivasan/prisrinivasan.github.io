@@ -6,5 +6,14 @@ output:
     toc_float: true
 ---
 
-Hello there! My name is Priyanka Srinivasan, a second year MPH Biostatistics student at Columbia University's Mailman School of Public Health. You can find more [about me](./about.html) here, like my academic and professional experience.
+### About me
 
+Hello there! My name is Priyanka Srinivasan, a second year MPH Biostatistics student at Columbia University's Mailman School of Public Health. My bottom-line goal here is to learn something new.
+
+Professionally, I'm interested in learning how to use analytical tools to tackle problems within the healthcare system. My current personal obsessions include reading thrillers/horrors and taking boxing classes. For information on my academic and professional experience, feel free to view my [resume](./resume.html). You can find more about the dashboard data and website [here](./about.html).
+
+### Rafa
+
+I don't have any pets of my own, but [here](https://www.instagram.com/rafa._nadog/) - Rafa, my uncle's dog - is a very silly dog that I like.
+
+<img src="images/rafa.png" style="width:50%">

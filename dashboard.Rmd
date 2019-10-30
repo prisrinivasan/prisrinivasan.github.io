@@ -1,10 +1,9 @@
 ---
-title: "Dashboard"
+title: "Dashboard: Food Inspection"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-    theme: yeti
 ---
 
 ```{r setup, include=FALSE}
@@ -23,45 +22,53 @@ theme_set(theme_light() + theme(legend.position = "bottom"))
 ```{r data import, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
 data(rest_inspec)
 
-rest_inspec %>% 
-  janitor::clean_names()
+inspect = rest_inspec %>% 
+  janitor::clean_names() %>% 
+  filter(!boro %in% c("Missing"),
+         grade %in%  c("P", "Z", "Not Yet Graded")) %>% 
+  mutate(grade = recode(grade, "P" = "P: Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Z: Pending"))
+
 ```
 
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A: Distribution of Scores among Pending Grades
+### Chart A: Distribution of Scores among Spookiest (Pending) Grades
 
 ```{r}
-rest_inspec %>% 
-  filter(boro %in% c("BRONX", "MANHATTAN", "BROOKLYN", "QUEENS", "STATEN ISLAND"),
-         grade %in%  c("P", "Z")) %>% 
-  mutate(boro = fct_reorder(boro, score),
-         grade = recode(grade, "P" = "Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Pending")) %>% 
+inspect %>% 
+  mutate(grade = fct_reorder(grade, score)) %>% 
   plot_ly(x = ~boro, y = ~score, color = ~grade, type = "box") %>% 
-  layout(boxmode = "group")
+  layout(xaxis = list(title = "Borough"), yaxis = list(title = "Inspection Score"), boxmode = "group", legend = list(orientation = 'h'))
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B: Grades Among "Critical" Restaurants
+### Chart B: Grades Among "Critical" Restaurants (hauntingly high!)
 
 ```{r}
 rest_inspec %>% 
-  filter(critical_flag == "Critical") %>%  
+  filter(boro %in% c("BRONX", "MANHATTAN", "BROOKLYN", "QUEENS", "STATEN ISLAND"),
+         critical_flag == "Critical") %>%  
   count(grade) %>% 
   mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
   plot_ly(x = ~n, y = ~grade, color = ~grade, type = "bar") %>% 
   layout(xaxis = list(title = "Count"), yaxis = list(title = "Grade"))
 ```
 
-### Chart C
+### Chart C: Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date
 
 ```{r}
-rest_inspec %>% 
-  filter(boro == "BRONX" | cuisine_description %in% c("Pizza", "Pizza/Italian")) %>% 
-  plot_ly(x = ~inspection_date, y = ~score, color = ~grade, type = "scatter")
+inspect %>% 
+  filter(cuisine_description %in% c("Pizza", "Pizza/Italian")) %>% 
+  plot_ly(x = ~inspection_date,
+          y = ~score,
+          color = ~grade,
+          type = "scatter") %>% 
+  layout(xaxis = list(title = "Date of Inspection"),
+         yaxis = list(title = "Inspection Score"),
+         legend = list(x = 0, y = 1))
 ```
 

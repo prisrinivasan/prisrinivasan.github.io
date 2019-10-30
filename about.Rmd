@@ -1,90 +1,15 @@
 ---
-title: "About me"
+title: "About this website"
 output: 
   html_document:
     toc: TRUE
     toc_float: TRUE
 ---
 
-### About this site
+### Dashboard Data
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+The data used on this [dashboard](./dashboard.html) is sourced from The New York City Department of Health and Mental Hygiene (DOHMH) food inspection data. I accessed the dataset, data dictionary, and other information through the P8105 course [website](https://p8105.com/dataset_restaurant_inspections.html).
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+### Website
 
-# Priyanka's Resume
-
-### Education
-
-**Columbia University Mailman School of Public Health**, 2018 - 2020
-
-*MPH in Biostatistics, Certificate in Health Policy and Practice*
-
-  * **Relevant Coursework**: Health Systems, Global & Developmental Perspectives, Quantitative and Qualitative Research Methods Statistical Computing with SAS, Applied Regression I and II, Understanding the Healthcare Payer System, Health Economics, Data Science I
-
-**Fordham University**, 2013-2017
-
-*BS Psychology, minor in Business Administration, pre-medical track*
-
-### Work Experience
-
-**Columbia University**, August 2018 – Present
-
-*Graduate Teaching Assistant*
-
-  * Statistical Computing with SAS | Health Systems (Health Economics, US Public Health, Comparative Health Systems)
-
-**KPMG**,	June 2019 – August 2019
-
-*Management Consulting Intern, Health and Government Solutions*
-
-  * Provided project management support and produced weekly status reports to keep key stakeholders informed
-  * Re-engineered a model for optimizing staffing based on needs of several stakeholders
-  * Researched and presented a potential program and procurement to a high-level stakeholder based on which a whitepaper is being presented to persuade the Commissioner to pursue the program
-
-**Translational Neuroimaging Laboratory, Albert Einstein School of Medicine**, (FT) July 2017 – July 2018, (PT) July 2018 – December 2018
-
-*Clinical Research Coordinator* 
-
-  * Responsible for QA of MRI images, executive dashboards, data analysis (SPSS), documentation, IRB-related communications, grant/budget proposals, and interviewing subjects for a study on TBI in soccer players
-
-**Mood and Anxiety Disorders Program, Icahn School of Medicine at Mount Sinai**, March 2015 – November 2015, September 2016 – April 2017
-
-*Clinical Research Intern*
-
-  * Conducted 45-min phone screens research subjects, organized stored bio samples, and organized large study data (SPSS)
-
-**St. John’s Riverside Hospital**, June 2015 – November 2015
-
-*Medical Concierge/Scribe*
-
-  * Composed chart documentation, billing, scribe program development for physicians in Emergency Department setting
-
-### Leadership and Volunteer Experience
-
-**Healthcare Data Analytics (Columbia)**,	January 2019 – Present
-
-*VP of Finance*
-
-  * Maintain records of financial transactions, budget allocation, contacting vendors, documentation, and organizing meetings/events
-
-**Peer Health Exchange, Inc. (Fordham)**,	September 2013 – April 2017
-
-*Co-Coordinator, Leadership Council Member, Health Educator*
-
-  * Co-managed chapter of 60+ volunteers, tracked teaching of 130+ workshops scheduled at 6 Bronx high schools, led weekly teaching and cultural sensitivity trainings for health educators, taught HS students, adapted curriculum to student needs
-
-**Care Package Delivery**, September 2014 – July 2015
-
-*Project Coordinator*
-
-  * Spearheaded a project to collect and donate care packages children/adolescents who suffer from mental illnesses at clinics in University of Virginia health system and an outpatient clinic in Chantilly, VA
-
-### Presentations
-
-  * Srinivasan, P. (2015, April). Cross-Cultural Attitudes on Women’s Rights at the UN. Oral presentation at the 43rd Annual Hunter College Psychology Conference, New York, NY.
-  * TEDxFordham Talk: “Mental Health and Education”
-
-### Skills
-
-  * SAS, REDCap, R (currently learning) EMR (EPIC, Velos, Meditech), SPSS, Microsoft Office Suites (Word, Excel, PowerPoint, Access), Tableau (limited hands-on experience)
+This website was created using R Markdown on Github.
