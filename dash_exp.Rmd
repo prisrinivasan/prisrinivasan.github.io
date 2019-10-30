@@ -6,19 +6,21 @@ output:
     toc_float: TRUE
 ---
 
-## Dataset
 The data used on this [dashboard](./dashboard.html) is sourced from The New York City Department of Health and Mental Hygiene (DOHMH) food inspection data. I accessed the dataset, data dictionary, and other information through the P8105 course [website](https://p8105.com/dataset_restaurant_inspections.html).
 
 I filtered the original `nyc_inspec` dataset to remove boroughs that are marked as "Missing" and, in the spirit of Halloween, the spookiest inspection grades: P (Pending on re-opening after an initial inspection resulting in a closure), Z (Pending), and Not Yet Graded (just to see how this compares to P and Z).
 
-### Chart A: Distribution of Scores among Spookiest (Pending) Grades
+## Chart A
+#### Distribution of Scores among Spookiest (Pending) Grades
 
 To make this boxplot, I ordered the grades by score and plotted borough against score to see distribution of inspection scores within the lowest grades/those not yet graded. I grouped these by borough as well so I could visualize differences in scores/grades across boroughs.
 
-### Chart B: Grades Among "Critical" Restaurants (hauntingly high!)
+## Chart B
+#### Grades Among "Critical" Restaurants (hauntingly high!)
 
 To keep up with the spooky theme, I created a bar chart including grades only among "Critical" restaurants - meaning those that are most likely to contribute to foodborne illness. For example, we can observe that there is a far higher count of `A` grades than `P` or `Z` among "Critical" restaurants.
 
-### Chart C: Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date
+## Chart C
+#### Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date
 
 Among cuisines serving `Pizza` or `Pizza/Italian`, I created a scatterplot showing scores by date of inspection, coloring the points based on the grade. 

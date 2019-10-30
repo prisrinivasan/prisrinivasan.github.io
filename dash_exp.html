@@ -402,20 +402,26 @@ div.tocify {
 </div>
 
 
-<div id="dataset" class="section level2">
-<h2>Dataset</h2>
 <p>The data used on this <a href="./dashboard.html">dashboard</a> is sourced from The New York City Department of Health and Mental Hygiene (DOHMH) food inspection data. I accessed the dataset, data dictionary, and other information through the P8105 course <a href="https://p8105.com/dataset_restaurant_inspections.html">website</a>.</p>
 <p>I filtered the original <code>nyc_inspec</code> dataset to remove boroughs that are marked as “Missing” and, in the spirit of Halloween, the spookiest inspection grades: P (Pending on re-opening after an initial inspection resulting in a closure), Z (Pending), and Not Yet Graded (just to see how this compares to P and Z).</p>
-<div id="chart-a-distribution-of-scores-among-spookiest-pending-grades" class="section level3">
-<h3>Chart A: Distribution of Scores among Spookiest (Pending) Grades</h3>
+<div id="chart-a" class="section level2">
+<h2>Chart A</h2>
+<div id="distribution-of-scores-among-spookiest-pending-grades" class="section level4">
+<h4>Distribution of Scores among Spookiest (Pending) Grades</h4>
 <p>To make this boxplot, I ordered the grades by score and plotted borough against score to see distribution of inspection scores within the lowest grades/those not yet graded. I grouped these by borough as well so I could visualize differences in scores/grades across boroughs.</p>
 </div>
-<div id="chart-b-grades-among-critical-restaurants-hauntingly-high" class="section level3">
-<h3>Chart B: Grades Among “Critical” Restaurants (hauntingly high!)</h3>
+</div>
+<div id="chart-b" class="section level2">
+<h2>Chart B</h2>
+<div id="grades-among-critical-restaurants-hauntingly-high" class="section level4">
+<h4>Grades Among “Critical” Restaurants (hauntingly high!)</h4>
 <p>To keep up with the spooky theme, I created a bar chart including grades only among “Critical” restaurants - meaning those that are most likely to contribute to foodborne illness. For example, we can observe that there is a far higher count of <code>A</code> grades than <code>P</code> or <code>Z</code> among “Critical” restaurants.</p>
 </div>
-<div id="chart-c-pendingnot-graded-inspection-scores-among-pizza-and-pizzaitalian-restaurants-by-date" class="section level3">
-<h3>Chart C: Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date</h3>
+</div>
+<div id="chart-c" class="section level2">
+<h2>Chart C</h2>
+<div id="pendingnot-graded-inspection-scores-among-pizza-and-pizzaitalian-restaurants-by-date" class="section level4">
+<h4>Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date</h4>
 <p>Among cuisines serving <code>Pizza</code> or <code>Pizza/Italian</code>, I created a scatterplot showing scores by date of inspection, coloring the points based on the grade.</p>
 </div>
 </div>
