@@ -14,7 +14,6 @@ library(viridis)
 library(p8105.datasets)
 library(plotly)
 
-
 theme_set(theme_bw() + theme(legend.position = "bottom"))
 ```
 
