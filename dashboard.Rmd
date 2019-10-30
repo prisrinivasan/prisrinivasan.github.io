@@ -2,8 +2,9 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
+    theme: yeti
 ---
 
 ```{r setup, include=FALSE}
@@ -28,25 +29,28 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-inspect %>% 
-  filter(critical_flag == "Critical") %>%  
-  count(grade) %>% 
-  mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
-  plot_ly(x = ~n, y = ~grade, color = ~grade, type = "bar")
+
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Grades Among Restaurants Labeled as "Critical"
 
 ```{r}
-
+inspect %>% 
+  filter(critical_flag == "Critical") %>%  
+  count(grade) %>% 
+  mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
+  plot_ly(x = ~n, y = ~grade, color = ~grade, type = "bar") %>% 
+  layout(xaxis = list(title = "Count"), yaxis = list(title = "Grade"))
 ```
 
 ### Chart C
 
 ```{r}
-
+inspect = rest_inspec %>% 
+  filter(boro == "BRONX" | cuisine_description %in% c("Pizza", "Pizza/Italian")) %>% 
+  
 ```
 
