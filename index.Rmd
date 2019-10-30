@@ -10,7 +10,7 @@ output:
 
 Hello there! My name is Priyanka Srinivasan, a second year MPH Biostatistics student at Columbia University's Mailman School of Public Health. My bottom-line goal here is to learn something new.
 
-Professionally, I'm interested in learning how to use analytical tools to tackle problems within the healthcare system. My current personal obsessions include reading thriller/horror stories, taking boxing classes, and playing with animals. For information on my academic and professional experience, feel free to view my [resume](./resume.html). You can find more about the dashboard data and website [here](./about.html).
+Professionally, I'm interested in learning how to use analytical tools to tackle problems within the healthcare system. My current personal obsessions include reading thriller/horror stories, taking boxing classes, and playing with animals. For information on my academic and professional experience, feel free to view my [resume](./resume.html). You can find more about the dashboard data [here](./dashboard.html).
 
 ### Nice things
 
