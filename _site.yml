@@ -18,7 +18,7 @@ navbar:
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/priyankasrinivasan/
     - icon: fa-graduation-cap fa-lg
-      href: about.html
+      href: resume.html
 output:
   html_document:
-    theme: readable
+    theme: flatly
