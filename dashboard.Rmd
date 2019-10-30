@@ -4,7 +4,7 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-    theme: flatly
+    theme: darkly
 ---
 
 ```{r setup, include=FALSE}
@@ -14,10 +14,8 @@ library(viridis)
 library(p8105.datasets)
 library(plotly)
 
-scale_colour_discrete = scale_colour_viridis_d()
-scale_fill_discrete = scale_fill_viridis_d()
 
-theme_set(theme_light() + theme(legend.position = "bottom"))
+theme_set(theme_bw() + theme(legend.position = "bottom"))
 ```
 
 ```{r data import, message=FALSE, warning=FALSE, echo=FALSE, include=FALSE}
@@ -27,7 +25,8 @@ inspect = rest_inspec %>%
   janitor::clean_names() %>% 
   filter(!boro %in% c("Missing"),
          grade %in%  c("P", "Z", "Not Yet Graded")) %>% 
-  mutate(grade = recode(grade, "P" = "P: Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Z: Pending"))
+  mutate(grade = recode(grade, "P" = "P: Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Z: Pending")) %>% 
+  select(boro, grade, score, critical_flag, inspection_date, cuisine_description)
 
 ```
 
@@ -40,8 +39,15 @@ Column {data-width=650}
 ```{r}
 inspect %>% 
   mutate(grade = fct_reorder(grade, score)) %>% 
-  plot_ly(x = ~boro, y = ~score, color = ~grade, type = "box") %>% 
-  layout(xaxis = list(title = "Borough"), yaxis = list(title = "Inspection Score"), boxmode = "group", legend = list(orientation = 'h'))
+  plot_ly(x = ~boro,
+          y = ~score,
+          color = ~grade,
+          type = "box",
+          colors = viridis(3, begin = 0.2, end = 0.8, option = "A")) %>% 
+  layout(xaxis = list(title = "Borough"),
+         yaxis = list(title = "Inspection Score"),
+         boxmode = "group",
+         legend = list(orientation = 'h'))
 ```
 
 Column {data-width=350}
@@ -51,11 +57,14 @@ Column {data-width=350}
 
 ```{r}
 rest_inspec %>% 
-  filter(boro %in% c("BRONX", "MANHATTAN", "BROOKLYN", "QUEENS", "STATEN ISLAND"),
-         critical_flag == "Critical") %>%  
-  count(grade) %>% 
+  filter(critical_flag == "Critical") %>%  
+  count(grade) %>%
   mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
-  plot_ly(x = ~n, y = ~grade, color = ~grade, type = "bar") %>% 
+  plot_ly(x = ~n,
+          y = ~grade,
+          color = ~grade,
+          type = "bar",
+          colors = viridis(6, begin = 0.1, end = 0.9, option = "A")) %>% 
   layout(xaxis = list(title = "Count"), yaxis = list(title = "Grade"))
 ```
 
@@ -67,7 +76,8 @@ inspect %>%
   plot_ly(x = ~inspection_date,
           y = ~score,
           color = ~grade,
-          type = "scatter") %>% 
+          type = "scatter",
+          colors = viridis(3, begin = 0.3, end = 0.9, option = "A")) %>% 
   layout(xaxis = list(title = "Date of Inspection"),
          yaxis = list(title = "Inspection Score"),
          legend = list(x = 0, y = 1))
