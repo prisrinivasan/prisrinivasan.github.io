@@ -10,17 +10,86 @@ The data used on this [dashboard](./dashboard.html) is sourced from The New York
 
 I filtered the original `nyc_inspec` dataset to remove boroughs that are marked as "Missing" and, in the spirit of Halloween, the spookiest inspection grades: P (Pending on re-opening after an initial inspection resulting in a closure), Z (Pending), and Not Yet Graded (just to see how this compares to P and Z).
 
+## Data Cleaning
+
+See below for my data cleaning code.
+```{r data cleaning, warning=FALSE, message=FALSE, results='hide'}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+
+theme_set(theme_bw() + theme(legend.position = "bottom"))
+
+data(rest_inspec)
+
+inspect = rest_inspec %>% 
+  janitor::clean_names() %>% 
+  filter(!boro %in% c("Missing"),
+         grade %in%  c("P", "Z", "Not Yet Graded")) %>% 
+  mutate(grade = recode(grade, "P" = "P: Pending on re-opening after an initial inspection resulting in a closure", "Z" = "Z: Pending")) %>% 
+  select(boro, grade, score, critical_flag, inspection_date, cuisine_description)
+```
+
+
 ## Chart A
 #### Distribution of Scores among Spookiest (Pending) Grades
 
 To make this boxplot, I ordered the grades by score and plotted borough against score to see distribution of inspection scores within the lowest grades/those not yet graded. I grouped these by borough as well so I could visualize differences in scores/grades across boroughs.
+
+Code for Chart A:
+
+```{r chart A, warning=FALSE, message=FALSE, results='hide'}
+inspect %>% 
+  mutate(grade = fct_reorder(grade, score)) %>% 
+  plot_ly(x = ~boro,
+          y = ~score,
+          color = ~grade,
+          type = "box",
+          colors = viridis(3, begin = 0.2, end = 0.8, option = "A")) %>% 
+  layout(xaxis = list(title = "Borough"),
+         yaxis = list(title = "Inspection Score"),
+         boxmode = "group",
+         legend = list(orientation = 'h'))
+```
 
 ## Chart B
 #### Grades Among "Critical" Restaurants (hauntingly high!)
 
 To keep up with the spooky theme, I created a bar chart including grades only among "Critical" restaurants - meaning those that are most likely to contribute to foodborne illness. For example, we can observe that there is a far higher count of `A` grades than `P` or `Z` among "Critical" restaurants.
 
+Code for Chart B:
+
+```{r chart B, warning=FALSE, message=FALSE, results='hide'}
+rest_inspec %>% 
+  filter(critical_flag == "Critical") %>%  
+  count(grade) %>%
+  mutate(grade = fct_reorder(grade, n)) %>% #to make bar chart in a particular order
+  plot_ly(x = ~n,
+          y = ~grade,
+          color = ~grade,
+          type = "bar",
+          colors = viridis(6, begin = 0.1, end = 0.9, option = "A")) %>% 
+  layout(xaxis = list(title = "Count"), yaxis = list(title = "Grade"))
+```
+
 ## Chart C
 #### Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date
 
 Among cuisines serving `Pizza` or `Pizza/Italian`, I created a scatterplot showing scores by date of inspection, coloring the points based on the grade. 
+
+Code for Chart C:
+
+```{r chart C, warning=FALSE, message=FALSE, results='hide'}
+inspect %>% 
+  filter(cuisine_description %in% c("Pizza", "Pizza/Italian")) %>% 
+  plot_ly(x = ~inspection_date,
+          y = ~score,
+          color = ~grade,
+          type = "scatter",
+          colors = viridis(3, begin = 0.3, end = 0.9, option = "A")) %>% 
+  layout(xaxis = list(title = "Date of Inspection"),
+         yaxis = list(title = "Inspection Score"),
+         legend = list(x = 0, y = 1))
+```

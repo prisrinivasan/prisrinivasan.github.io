@@ -16,8 +16,8 @@ Professionally, I'm interested in learning how to use analytical tools to tackle
 
 I don't have any pets of my own, but here is [Rafa](https://www.instagram.com/rafa._nadog/), my uncle's dog, and a silly goat I made friends with this summer.
 
-<img src="images/rafa.png" style="width:35%"> <img src="images/goat.png" style="width:35%" style="float:left">
+<img src="images/rafa.png" alt = "Rafa" style="width:35%; border:5px solid"> <img src="images/goat.png" alt = "Goat" style="width:38%; border:5px solid" style="float:left">
 
 
-#### About the website
+
 This website was created using R Markdown on Github.

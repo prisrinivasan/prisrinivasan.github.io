@@ -404,11 +404,43 @@ div.tocify {
 
 <p>The data used on this <a href="./dashboard.html">dashboard</a> is sourced from The New York City Department of Health and Mental Hygiene (DOHMH) food inspection data. I accessed the dataset, data dictionary, and other information through the P8105 course <a href="https://p8105.com/dataset_restaurant_inspections.html">website</a>.</p>
 <p>I filtered the original <code>nyc_inspec</code> dataset to remove boroughs that are marked as “Missing” and, in the spirit of Halloween, the spookiest inspection grades: P (Pending on re-opening after an initial inspection resulting in a closure), Z (Pending), and Not Yet Graded (just to see how this compares to P and Z).</p>
+<div id="data-cleaning" class="section level2">
+<h2>Data Cleaning</h2>
+<p>See below for my data cleaning code.</p>
+<pre class="r"><code>library(flexdashboard)
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+
+theme_set(theme_bw() + theme(legend.position = &quot;bottom&quot;))
+
+data(rest_inspec)
+
+inspect = rest_inspec %&gt;% 
+  janitor::clean_names() %&gt;% 
+  filter(!boro %in% c(&quot;Missing&quot;),
+         grade %in%  c(&quot;P&quot;, &quot;Z&quot;, &quot;Not Yet Graded&quot;)) %&gt;% 
+  mutate(grade = recode(grade, &quot;P&quot; = &quot;P: Pending on re-opening after an initial inspection resulting in a closure&quot;, &quot;Z&quot; = &quot;Z: Pending&quot;)) %&gt;% 
+  select(boro, grade, score, critical_flag, inspection_date, cuisine_description)</code></pre>
+</div>
 <div id="chart-a" class="section level2">
 <h2>Chart A</h2>
 <div id="distribution-of-scores-among-spookiest-pending-grades" class="section level4">
 <h4>Distribution of Scores among Spookiest (Pending) Grades</h4>
 <p>To make this boxplot, I ordered the grades by score and plotted borough against score to see distribution of inspection scores within the lowest grades/those not yet graded. I grouped these by borough as well so I could visualize differences in scores/grades across boroughs.</p>
+<p>Code for Chart A:</p>
+<pre class="r"><code>inspect %&gt;% 
+  mutate(grade = fct_reorder(grade, score)) %&gt;% 
+  plot_ly(x = ~boro,
+          y = ~score,
+          color = ~grade,
+          type = &quot;box&quot;,
+          colors = viridis(3, begin = 0.2, end = 0.8, option = &quot;A&quot;)) %&gt;% 
+  layout(xaxis = list(title = &quot;Borough&quot;),
+         yaxis = list(title = &quot;Inspection Score&quot;),
+         boxmode = &quot;group&quot;,
+         legend = list(orientation = &#39;h&#39;))</code></pre>
 </div>
 </div>
 <div id="chart-b" class="section level2">
@@ -416,6 +448,17 @@ div.tocify {
 <div id="grades-among-critical-restaurants-hauntingly-high" class="section level4">
 <h4>Grades Among “Critical” Restaurants (hauntingly high!)</h4>
 <p>To keep up with the spooky theme, I created a bar chart including grades only among “Critical” restaurants - meaning those that are most likely to contribute to foodborne illness. For example, we can observe that there is a far higher count of <code>A</code> grades than <code>P</code> or <code>Z</code> among “Critical” restaurants.</p>
+<p>Code for Chart B:</p>
+<pre class="r"><code>rest_inspec %&gt;% 
+  filter(critical_flag == &quot;Critical&quot;) %&gt;%  
+  count(grade) %&gt;%
+  mutate(grade = fct_reorder(grade, n)) %&gt;% #to make bar chart in a particular order
+  plot_ly(x = ~n,
+          y = ~grade,
+          color = ~grade,
+          type = &quot;bar&quot;,
+          colors = viridis(6, begin = 0.1, end = 0.9, option = &quot;A&quot;)) %&gt;% 
+  layout(xaxis = list(title = &quot;Count&quot;), yaxis = list(title = &quot;Grade&quot;))</code></pre>
 </div>
 </div>
 <div id="chart-c" class="section level2">
@@ -423,6 +466,17 @@ div.tocify {
 <div id="pendingnot-graded-inspection-scores-among-pizza-and-pizzaitalian-restaurants-by-date" class="section level4">
 <h4>Pending/Not Graded Inspection Scores among Pizza and Pizza/Italian Restaurants by Date</h4>
 <p>Among cuisines serving <code>Pizza</code> or <code>Pizza/Italian</code>, I created a scatterplot showing scores by date of inspection, coloring the points based on the grade.</p>
+<p>Code for Chart C:</p>
+<pre class="r"><code>inspect %&gt;% 
+  filter(cuisine_description %in% c(&quot;Pizza&quot;, &quot;Pizza/Italian&quot;)) %&gt;% 
+  plot_ly(x = ~inspection_date,
+          y = ~score,
+          color = ~grade,
+          type = &quot;scatter&quot;,
+          colors = viridis(3, begin = 0.3, end = 0.9, option = &quot;A&quot;)) %&gt;% 
+  layout(xaxis = list(title = &quot;Date of Inspection&quot;),
+         yaxis = list(title = &quot;Inspection Score&quot;),
+         legend = list(x = 0, y = 1))</code></pre>
 </div>
 </div>
 
