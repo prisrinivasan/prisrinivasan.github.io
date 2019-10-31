@@ -1,12 +1,15 @@
 ---
-title: "Priyanka's Resume"
+title: "Priyanka Srinivasan"
 output: 
   html_document:
     toc: TRUE
     toc_float: TRUE
 ---
+# Resume
 
-### Education
+priyanka.srinivasan2013@gmail.com • [linkedin](https://www.linkedin.com/in/priyankasrinivasan/)
+
+## Education
 
 **Columbia University Mailman School of Public Health**, 2018 - 2020
 
@@ -18,7 +21,7 @@ output:
 
 *BS Psychology, minor in Business Administration, pre-medical track*
 
-### Work Experience
+## Work Experience
 
 **Columbia University**, August 2018 – Present
 
@@ -52,7 +55,7 @@ output:
 
   * Composed chart documentation, billing, scribe program development for physicians in Emergency Department setting
 
-### Leadership and Volunteer Experience
+## Leadership and Volunteer Experience
 
 **Healthcare Data Analytics (Columbia)**,	January 2019 – Present
 
@@ -72,11 +75,11 @@ output:
 
   * Spearheaded a project to collect and donate care packages children/adolescents who suffer from mental illnesses at clinics in University of Virginia health system and an outpatient clinic in Chantilly, VA
 
-### Presentations
+## Presentations
 
   * Srinivasan, P. (2015, April). Cross-Cultural Attitudes on Women’s Rights at the UN. Oral presentation at the 43rd Annual Hunter College Psychology Conference, New York, NY.
   * TEDxFordham Talk: “Mental Health and Education”
 
-### Skills
+## Skills
 
   * SAS, REDCap, R (currently learning) EMR (EPIC, Velos, Meditech), SPSS, Microsoft Office Suites (Word, Excel, PowerPoint, Access), Tableau (limited hands-on experience)
