@@ -1,13 +1,16 @@
 ---
 title: "Priyanka Srinivasan"
-output: 
-  html_document:
-    toc: TRUE
-    toc_float: TRUE
+output: html_document
 ---
-# Resume
 
-priyanka.srinivasan2013@gmail.com • [linkedin](https://www.linkedin.com/in/priyankasrinivasan/)
+<style type="text/css">
+h1.title {text-align: center;}
+</style>
+
+<center>
+# Resume
+priyanka.srinivasan2013@gmail.com | [linkedin](https://www.linkedin.com/in/priyankasrinivasan/)
+</center>
 
 ## Education
 
