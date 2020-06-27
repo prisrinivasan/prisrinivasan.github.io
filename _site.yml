@@ -23,4 +23,5 @@ navbar:
       href: resume.html
 output:
   html_document:
-    css: bootstrap.css
+    theme: flatly
+    #css: bootstrap.css
