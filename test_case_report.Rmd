@@ -65,5 +65,7 @@ totalpositive = historic_us %>%
 totalpositive = totalpositive %>% 
   add_trace(y = ~tests_tot, name = 'Total Tests (count, as of date)', line = list(width = 4)) 
 
+totalpositive = totalpositive %>% layout(legend = list(orientation = 'h'))
+
 totalpositive
 ```
