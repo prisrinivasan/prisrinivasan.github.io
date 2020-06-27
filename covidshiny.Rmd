@@ -1,0 +1,78 @@
+---
+title: "covid shiny"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    source_code: embed
+    navbar:
+      - icon: fa-home
+        href: https://prisrinivasan.github.io/
+        align: left
+    theme: journal
+runtime: shiny
+---
+
+```{r setup, include=FALSE, echo = FALSE}
+library(tidyverse)
+library(broom)
+library(httr)
+library(ggplot2)
+library(plotly)
+```
+
+
+```{r loading historic, message = FALSE, warning = FALSE}
+load("historic_us.Rda")
+load("historic_state.Rda")
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+Even though these kinds of interactive graphs for COVID-19 are everywhere, I'm recreating them to keep up my R proficiency and to hopefully learn more about this pandemic. 
+
+#### You can use the dropdown and checkboxes below to visualize what you want to see about the COVID-19 crisis in the US.
+
+```{r}
+states = as.vector(historic_state$state)
+states = unique(states)
+
+#function for borough choices
+func = function(x, states) {
+  if (x %in% states) {
+    TRUE} else{
+      FALSE}}
+
+#checkboxes
+checkboxGroupInput(
+  "states", 
+  label = h5("Choose states"),
+  choices = states,
+  selected = states)
+
+hr()
+```
+
+
+Column {.tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### graph for US only!!!!!!!
+```{r}
+mapinput = reactive({
+  
+  historic_state %>%
+    mutate(state = map(state, func, input$states)) %>% 
+    filter(state == TRUE)
+  
+})
+
+renderPlotly({
+  historic_us %>%
+    arrange(date) %>%
+    plot_ly(x = ~date,
+            y = ~dailypos,
+            type = 'bar') %>%
+    layout(xaxis = list(title = "Dates, in 2020", type = "category"),
+           yaxis = list(title = "Daily Positive Tests (count)"))
+    })
+```

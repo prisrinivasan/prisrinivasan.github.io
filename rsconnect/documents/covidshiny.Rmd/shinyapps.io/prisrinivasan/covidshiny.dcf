@@ -1,0 +1,10 @@
+name: covidshiny
+title:
+username:
+account: prisrinivasan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2511677
+bundleId: 3323672
+url: https://prisrinivasan.shinyapps.io/covidshiny/
+when: 1593284431.87272

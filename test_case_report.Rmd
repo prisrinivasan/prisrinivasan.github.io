@@ -23,24 +23,29 @@ historic_us = read_csv("./data/tests_and_cases/us.csv") %>%
   mutate(date = as.Date(as.character(date), format = "%Y%m%d"),
          char_date = format(date, "%b %d"),
          dailypos = positive - lead(positive),
-         tests_tot = positive %plus_% negative %plus_% pending)
+         tests_tot = positive %plus_% negative %plus_% pending,
+         dailydeath = death - lead(death))
 
 historic_state = read_csv("./data/tests_and_cases/states.csv") %>% 
   janitor::clean_names() %>% 
   mutate(date = as.Date(as.character(date), format = "%Y%m%d"),
          char_date = format(date, "%b %d"),
          dailypos = positive - lead(positive),
-         tests_tot = positive %plus_% negative %plus_% pending)
+         tests_tot = positive %plus_% negative %plus_% pending,
+         dailydeath = death - lead(death))
+
+save(historic_us, file = "historic_us.Rda")
+save(historic_state, file = "historic_state.Rda")
 ```
 
-
+These charts will be updated
 ### Chart A: Daily Positive Tests in US
 
 ```{r chart 1 plotly, message = FALSE, warning = FALSE, echo = FALSE}
 dailypositive = historic_us %>%
-  arrange(date) %>% 
+  arrange(date, state) %>% 
   plot_ly(x = ~date,
-          y = ~dailypos,
+          y = ~positive_increase,
           type = 'bar') %>% 
   layout(xaxis = list(title = "Dates, in 2020", type = "category"),
          yaxis = list(title = "Daily Positive Tests (count)"))
