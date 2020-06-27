@@ -9,8 +9,10 @@ navbar:
       menu:
         - text: "Explaining the Dashboard"
           href: dash_exp.html
-        - text: "Dashboard"
+        - text: "Restaurant Inspection Dashboard"
           href: dashboard.html
+        - text: "COVID Tests and Cases Report"
+          href: test_case_report.html 
     - icon: fa-envelope fa-lg
       href: mailto:<ps3070@cumc.columbia.edu>
     - icon: fa-github fa-lg
@@ -21,4 +23,4 @@ navbar:
       href: resume.html
 output:
   html_document:
-    theme: flatly
+    css: bootstrap.css

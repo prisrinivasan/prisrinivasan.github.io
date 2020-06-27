@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Nunito|Raleway|Cardo&display=swap');
+
+
+.navbar {
+  font-family: "Raleway";
+  color: #000000;
+  background-color: #e9f2eb;
+  border: none;
+}
+
+.navbar-brand {
+  font-size: 26px;
+}
+
+a:link {
+    color: #709979;
+}
+
+/* visited link */
+a:visited {
+    color: #949db5;
+}
+
+/* mouse over link */
+a:hover {
+    color: #567d5f;
+}
+
+/* selected link */
+a:active {
+    color: #5d67a1;
+}
+
+
+h1, h3 {
+  font-family : "Raleway";
+}
+
+h2 {
+  font-family : "Cardo";
+}
+
+p , li {
+  font-family: "Cardo";
+}
+
+.welcome {
+  text-align: center;
+}
+
+.profile {
+  display: block;
+  margin: 0 auto;
+}
+
+.icons {
+  font-size: 36px;
+  text-align: center;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #709979;
+    border-color: #567d5f;
+}
+
+.gallery {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+th {
+  padding: 10px;
+}
+
+.proj-img {
+  height: 150px;
+  width: 150px;
+  border: solid 3px black;
+  border-radius: 50%;
+}
+
+.filler {
+  border: solid 3px #fffaf0;
+  border-radius: 50%;
+}
+
+.caption {
+  text-align: center;
+  color: black;
+}

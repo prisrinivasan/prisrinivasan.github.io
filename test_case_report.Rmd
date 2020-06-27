@@ -1,0 +1,69 @@
+---
+title: "COVID Tests and Cases report"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(broom)
+library(httr)
+library(ggplot2)
+library(plotly)
+library(hablar)
+```
+
+```{r loading and tidying data, message = FALSE, warning = FALSE}
+historic_us = read_csv("./data/tests_and_cases/us.csv") %>% 
+  janitor::clean_names() %>% 
+  mutate(date = as.Date(as.character(date), format = "%Y%m%d"),
+         char_date = format(date, "%b %d"),
+         dailypos = positive - lead(positive),
+         tests_tot = positive %plus_% negative %plus_% pending)
+
+historic_state = read_csv("./data/tests_and_cases/states.csv") %>% 
+  janitor::clean_names() %>% 
+  mutate(date = as.Date(as.character(date), format = "%Y%m%d"),
+         char_date = format(date, "%b %d"),
+         dailypos = positive - lead(positive),
+         tests_tot = positive %plus_% negative %plus_% pending)
+```
+
+
+### Chart A: Daily Positive Tests in US
+
+```{r chart 1 plotly, message = FALSE, warning = FALSE}
+dailypositive = historic_us %>%
+  arrange(date) %>% 
+  plot_ly(x = ~date,
+          y = ~dailypos,
+          type = 'bar') %>% 
+  layout(xaxis = list(title = "Dates, in 2020", type = "category"),
+         yaxis = list(title = "Daily Positive Tests (count)"))
+
+dailypositive
+```
+
+
+
+### Chart B: Total Tests (count)
+
+```{r chart 2 plotly, message = FALSE, warning = FALSE}
+totalpositive = historic_us %>%
+  arrange(date) %>% 
+  plot_ly(x = ~date,
+          y = ~positive,
+          type = 'scatter',
+          mode = 'lines',
+          line = list(width = 4),
+          name = 'Total Positive Tests (count, as of date)'
+          ) %>% 
+  layout(xaxis = list(title = "Dates, in 2020", type = "category"))
+
+totalpositive = totalpositive %>% 
+  add_trace(y = ~tests_tot, name = 'Total Tests (count, as of date)', line = list(width = 4)) 
+
+totalpositive
+```
