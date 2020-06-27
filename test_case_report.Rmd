@@ -4,12 +4,11 @@ output:
   html_document:
     toc: TRUE
     toc_float: TRUE
-    code_folding: hide
     includes:
       after_body: footers.Rhtml
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo = FALSE}
 library(tidyverse)
 library(broom)
 library(httr)
@@ -18,7 +17,7 @@ library(plotly)
 library(hablar)
 ```
 
-```{r loading and tidying data, message = FALSE, warning = FALSE}
+```{r loading and tidying data, message = FALSE, warning = FALSE, echo = FALSE}
 historic_us = read_csv("./data/tests_and_cases/us.csv") %>% 
   janitor::clean_names() %>% 
   mutate(date = as.Date(as.character(date), format = "%Y%m%d"),
@@ -37,7 +36,7 @@ historic_state = read_csv("./data/tests_and_cases/states.csv") %>%
 
 ### Chart A: Daily Positive Tests in US
 
-```{r chart 1 plotly, message = FALSE, warning = FALSE}
+```{r chart 1 plotly, message = FALSE, warning = FALSE, echo = FALSE}
 dailypositive = historic_us %>%
   arrange(date) %>% 
   plot_ly(x = ~date,
@@ -53,7 +52,7 @@ dailypositive
 
 ### Chart B: Total Tests (count)
 
-```{r chart 2 plotly, message = FALSE, warning = FALSE}
+```{r chart 2 plotly, message = FALSE, warning = FALSE, echo = FALSE}
 totalpositive = historic_us %>%
   arrange(date) %>% 
   plot_ly(x = ~date,

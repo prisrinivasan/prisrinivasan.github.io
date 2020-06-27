@@ -16,7 +16,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -71,6 +71,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="bootstrap.css" type="text/css" />
 
 
 
@@ -105,33 +106,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 60px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -276,21 +277,23 @@ $(document).ready(function () {
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="resume.html">Resume</a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Restaurant Inspection Dashboard
+    Projects
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="dash_exp.html">Explaining the Dashboard</a>
-    </li>
-    <li>
-      <a href="dashboard.html">Restaurant Inspection Dashboard</a>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Restaurant Inspections</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="dash_exp.html">Explanation</a>
+        </li>
+        <li>
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="test_case_report.html">COVID Tests and Cases Report</a>
@@ -298,7 +301,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="mailto:&lt;ps3070@cumc.columbia.edu&gt;">
+  <a href="mailto:&lt;priyanka.srinivasan@caa.columbia.edu&gt;">
     <span class="fa fa-envelope fa-lg"></span>
      
   </a>

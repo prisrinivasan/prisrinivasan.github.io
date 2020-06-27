@@ -3,18 +3,18 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "Resume"
-      href: resume.html
-    - text: "Restaurant Inspection Dashboard"
+    - text: "Projects"
       menu:
-        - text: "Explaining the Dashboard"
-          href: dash_exp.html
-        - text: "Restaurant Inspection Dashboard"
-          href: dashboard.html
+        - text: "Restaurant Inspections"
+          menu: 
+            - text: "Explanation"
+              href: dash_exp.html
+            - text: "Dashboard"
+              href: dashboard.html
         - text: "COVID Tests and Cases Report"
           href: test_case_report.html 
     - icon: fa-envelope fa-lg
-      href: mailto:<ps3070@cumc.columbia.edu>
+      href: mailto:<priyanka.srinivasan@caa.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/prisrinivasan/
     - icon: fa-linkedin fa-lg
