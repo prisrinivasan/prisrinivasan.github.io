@@ -26,11 +26,12 @@ priyanka.srinivasan2013@gmail.com | [linkedin](https://www.linkedin.com/in/priya
 
 ## Work Experience
 
-**Columbia University**, August 2018 – Present
+**Columbia University**, August 2018 – May 2020
 
 *Graduate Teaching Assistant*
 
-  * Statistical Computing with SAS | Health Systems (Health Economics, US Public Health, Comparative Health Systems)
+  * Statistical Computing with SAS | Fall 2019, Spring 2020
+  * Health Systems (Health Economics, US Public Health, Comparative Health Systems, Op-Ed writing workshop) | Fall 2019
 
 **KPMG**,	June 2019 – August 2019
 
@@ -78,11 +79,15 @@ priyanka.srinivasan2013@gmail.com | [linkedin](https://www.linkedin.com/in/priya
 
   * Spearheaded a project to collect and donate care packages children/adolescents who suffer from mental illnesses at clinics in University of Virginia health system and an outpatient clinic in Chantilly, VA
 
-## Presentations
+## Presentations and Publications
 
-  * Srinivasan, P. (2015, April). Cross-Cultural Attitudes on Women’s Rights at the UN. Oral presentation at the 43rd Annual Hunter College Psychology Conference, New York, NY.
+  * **Srinivasan, P.** (2015, April). Cross-Cultural Attitudes on Women’s Rights at the UN. Oral presentation at the 43rd Annual Hunter College Psychology Conference, New York, NY.
   * TEDxFordham Talk: “Mental Health and Education”
+  * **Srinivasan, P.** (2015). The 24th U.N. International Day of Older Persons. International Psychology Bulletin (Div. 52 of the APA),19(1), Winter 2015, 41-42.
+  * Hunter LE, Freudenberg-Hua Y, Davies P, Mimi Kim, PhD; Richard B. Lipton, MD; Walter F. Stewart, PhD, MPH; **Priyanka Srinivasan, BS**; ShanShan Hu, MS; Michael L. Lipton, MD, PhD. Associations of Apolipoprotein E ε4 Genotype and Ball Heading With Verbal Memory in Amateur Soccer Players. JAMA Neurol. 2020;77(4):419–426. doi: 10.1001/jamaneurol.2019.4828
+  * Eschliman, E.L., Garner, B.A., Le, T., **Srinivasan, P.**, & Fullilove, R.E. (June 2020). Police Transparency is a Public Health Issue, Too. Health Affairs Blog. doi: 10.1377/hblog20200625.221802
+
 
 ## Skills
 
-  * SAS, REDCap, R (currently learning) EMR (EPIC, Velos, Meditech), SPSS, Microsoft Office Suites (Word, Excel, PowerPoint, Access), Tableau (limited hands-on experience)
+  * SAS, REDCap, R, Python (currently learning), EMR (EPIC, Velos, Meditech), SPSS, Microsoft Office Suites (Word, Excel, PowerPoint, Access), Tableau (limited hands-on experience)
